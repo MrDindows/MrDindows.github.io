@@ -36,7 +36,9 @@ for(var i = 1; i < rowData.length; ++i)
 	var name = rowData.item(i).getElementsByTagName('td').item(9).innerHTML;
 	if (name.indexOf('(') == -1 && name.indexOf('+') >= 0)
 	{
-		rowData.item(i).getElementsByTagName('td').item(11).innerHTML = '<br><br>';
+		for (var j=1;j<=13;++j)
+			if (rowData.item(i).getElementsByTagName('td').item(j).innerHTML.indexOf('+') >= 0)
+				rowData.item(i).getElementsByTagName('td').item(j).innerHTML += '<br>(0:00)';
 	}
 }
 
