@@ -33,10 +33,10 @@ for(var i = 1; i < rowData.length; ++i)
 
 for(var i = 1; i < rowData.length; ++i)
 {
-	var name = rowData.item(i).getElementsByTagName('td').item(9).innerHTML;
+	var name = rowData.item(i).getElementsByTagName('td').item(14).innerHTML;
 	if (name.indexOf('(') == -1 && name.indexOf('+') >= 0)
 	{
-		for (var j=1;j<=13;++j)
+		for (var j=14;j<=14;++j)
 			if (rowData.item(i).getElementsByTagName('td').item(j).innerHTML.indexOf('+') >= 0)
 				rowData.item(i).getElementsByTagName('td').item(j).innerHTML += '<br>(0:00)';
 	}
