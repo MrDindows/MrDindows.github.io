@@ -33,6 +33,16 @@ for(var i = 1; i < rowData.length; ++i)
 
 for(var i = 1; i < rowData.length; ++i)
 {
+	var name = rowData.item(i).getElementsByTagName('td').item(9).innerHTML;
+	if (name.indexOf('(') == -1 && name.indexOf('+') >= 0)
+	{
+		rowData.item(i).getElementsByTagName('td').item(11).innerHTML = '<br><br>';
+	}
+}
+
+
+for(var i = 1; i < rowData.length; ++i)
+{
 	var name = rowData.item(i).getElementsByTagName('td').item(1).innerHTML;
 	if (name.indexOf('*') > -1
 		|| name.indexOf('out of contest') > -1
