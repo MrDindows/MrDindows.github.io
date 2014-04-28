@@ -1,6 +1,31 @@
 var tableData = document.getElementById('standings').getElementsByTagName('tbody').item(0);
 var rowData = tableData.getElementsByTagName('tr'); 
 
+var last_score = 100;
+var e = true;
+for(var i = 1; i < rowData.length; ++i)
+{
+	var score = rowData.item(i).getElementsByTagName('td').item(15).innerHTML;
+	if (score !== last_score)
+	{
+		last_score = score;
+		e = !e;
+	}
+	if (e)
+	{
+		for (var j=0;j<17;++j)
+		{
+			rowData.item(i).getElementsByTagName('td').item(j).className = "total1";
+		}
+	}
+}
+
+
+for(var i = 1; i < rowData.length; ++i)
+{
+	rowData.item(i).getElementsByTagName('td').item(15).className = "total";
+}
+
 var solved = [];
 var penalty = [];
 for(var i = 1; i < rowData.length; ++i)
