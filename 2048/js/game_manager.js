@@ -34,9 +34,10 @@ GameManager.prototype.undo = function () {
   {
 	this.grid = this.oldGrids[this.oldGrids.length-1];
 	this.oldGrids.pop();
+	this.actuator.continueGame(); // Clear the game won/lost message
 	this.actuate();
   }
-  this.actuator.continueGame(); // Clear the game won/lost message
+  this.storageManager.clearGameState();
 };
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -188,6 +189,7 @@ GameManager.prototype.move = function (direction) {
           if (merged.value === 2048) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
+		  tmpGrid.cells[x][y].previousPosition = {x:x, y:y}; 
         }
 
         if (!self.positionsEqual(cell, tile)) {
