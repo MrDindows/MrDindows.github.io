@@ -42,7 +42,7 @@ render = function() {
 		ctx.beginPath();
 		ctx.fillStyle = "white";
 		ctx.font = "bold 16px Arial";
-		ctx.fillText(percent, target.x-10, target.y-target.radius);
+		ctx.fillText(percent, target.x-10, target.y-target.radius - 5);
 		ctx.closePath();
 	}
 

@@ -76,34 +76,38 @@ resetGame = function() {
 };
 
 var plusTime = 0;
+var step = 0;
 update = function() {
-	var t = Date.now();
-	var dt = t - time;
-	time = t;
-	plusTime += dt;
-	while (plusTime >= plusCD)
-	{
-		plusTime -= plusCD;
-		for (var i in planets)
+	++step;
+	if (step % 2 == 1){
+		var t = Date.now();
+		var dt = t - time;
+		time = t;
+		plusTime += dt;
+		while (plusTime >= plusCD)
 		{
-			var planet = planets[i];
-			if (planet.owner != 0)
+			plusTime -= plusCD;
+			for (var i in planets)
 			{
-				planet.population++;
+				var planet = planets[i];
+				if (planet.owner != 0)
+				{
+					planet.population++;
+				}
 			}
 		}
-	}
-	for (var i in drones)
-	{
-		var drone = drones[i];
-		if (drone.isAlive)
+		for (var i in drones)
 		{
-			drone.update(dt);
+			var drone = drones[i];
+			if (drone.isAlive)
+			{
+				drone.update(dt);
+			}
 		}
+		updateTargeting(dt);
+		AIs[0].update(dt);
+		render();
 	}
-	updateTargeting(dt);
-	AIs[0].update(dt);
-	render();
 	requestAnimFrame(function(){update(dt);});
 };
 
