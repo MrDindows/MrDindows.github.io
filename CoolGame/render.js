@@ -35,6 +35,17 @@ render = function() {
 		ctx.fillText(planet.population, planet.x-10, planet.y+5);
 		ctx.closePath();
 	}
+	if (target != null && selectedPlanets.length > 1 || fillingTime > 0){
+		var percent = fillingTime / fullFillTime;
+		percent >>= 0;
+		if (percent > 100) percent = 100;
+		ctx.beginPath();
+		ctx.fillStyle = "white";
+		ctx.font = "bold 16px Arial";
+		ctx.fillText(percent, target.x-10, target.y-target.radius);
+		ctx.closePath();
+	}
+
 	for (var i in drones)
 	{
 		var drone = drones[i];

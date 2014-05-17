@@ -101,6 +101,7 @@ update = function() {
 			drone.update(dt);
 		}
 	}
+	updateTargeting(dt);
 	AIs[0].update(dt);
 	render();
 	requestAnimFrame(function(){update(dt);});
@@ -113,7 +114,7 @@ launchDrones = function(sourcePlanets, targetPlanet, percent){
 	{
 		var planet = sourcePlanets[i];
 		var count = (planet.population * percent + 0.95)>>0;
-		var p = ((count +49)/ 50)>>0;
+		var p = ((count + 40 - 1)/ 40)>>0;
 		var q = ((count + p - 1) / p)>>0;
 		var e = count;
 		for (var j=0;j<q;++j)

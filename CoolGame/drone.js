@@ -1,4 +1,4 @@
-var velocity = 0.1;
+var velocity = 0.12;
 Drone = function(position, target, owner, population) {
 	this.x = position.x;
 	this.y = position.y;
@@ -29,7 +29,7 @@ Drone.prototype.update = function(dt) {
 	var dx = this.target.x - this.x;
 	var dy = this.target.y - this.y;
 	var absval = Math.sqrt(dx * dx + dy * dy);
-	var coef = 1 / absval * dt * velocity;
+	var coef = 1 / absval * dt * velocity * canvas.width / 1200;
 	this.x += dx * coef;
 	this.y += dy * coef;
 	if (this.target.inCoords({x:this.x,y:this.y}))

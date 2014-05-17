@@ -1,12 +1,43 @@
 
 var mousePressed = false;
+var mouseTargeted = false;
 var selectedPlanets = [];
-var fullFillTime = 1500;
+var fullFillTime = 7;
 var fillingTime = 0;
+var target = null;
+var aimedPlanet = null;
+
+updateTargeting = function(dt)
+{
+	if (aimedPlanet == null)
+	{
+		fillingTime = 0;
+		target = null;
+	}
+	else if (aimedPlanet != target)
+	{
+		fillingTime = 0;
+		target = aimedPlanet;
+	}
+	else
+	{
+		if (selectedPlanets.length == 0 || selectedPlanets.length == 1 && selectedPlanets[0] == aimedPlanet)
+		{
+			target = null;
+			fillingTime = 0;
+		}
+		else
+		{
+			fillingTime += dt;
+		}
+	}
+};
+
 window.onmousemove = function(e)
 {
 	var elPos = { X:canvas.offsetLeft , Y:canvas.offsetTop };
 	var mPos  = { x:e.clientX-elPos.X, y:e.clientY-elPos.Y };
+	aimedPlanet = null;
 	for (var i in planets)
 	{
 		var planet = planets[i];
@@ -21,6 +52,7 @@ window.onmousemove = function(e)
 					planet.state = Planet.State.CLICKED;
 				}
 			}
+			aimedPlanet = planet;
 		}
 		else
 		{
@@ -77,7 +109,9 @@ window.onmouseup = function(e){
 			{
 				selectedPlanets.splice(ind,1);
 			}
-			launchDrones(selectedPlanets,planet,1);
+			var percent = 0.01 * fillingTime / fullFillTime ;
+			if (percent > 1) percent = 1;
+			launchDrones(selectedPlanets,planet,percent);
 			targetPlanet.state = Planet.State.NORMAL;
 		}
 		for (var i in selectedPlanets)
