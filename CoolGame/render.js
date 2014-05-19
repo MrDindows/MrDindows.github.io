@@ -1,9 +1,9 @@
 render = function() {
-	ctx.fillStyle = "#130310";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.drawImage(bgPicture,0,0);//,screen.width,screen.height);
 	for(var i in planets)
 	{ 
 		var planet = planets[i];
+		ctx.drawImage(planets[i].image,planet.x-planet.radius,planet.y-planet.radius,planet.radius*2,planet.radius*2);
 		ctx.beginPath();
 		if (planet.state == Planet.State.HOVERED)
 		{
@@ -11,7 +11,7 @@ render = function() {
 		}
 		else
 		{
-			ctx.fillStyle = teamColors[planet.owner];
+			ctx.fillStyle = teamPlanetColors[planet.owner];
 		}
 		ctx.arc(planet.x,planet.y,planet.radius,0,Math.PI*2,false);
 		ctx.fill();
@@ -19,6 +19,7 @@ render = function() {
 		ctx.strokeStyle = "white";
 		ctx.stroke();
 		ctx.closePath();
+
 		if (planet.state == Planet.State.CLICKED)
 		{
 			ctx.beginPath();
@@ -50,9 +51,10 @@ render = function() {
 	{
 		var drone = drones[i];
 		if (!drone.isAlive) continue;
+		ctx.drawImage(droneImage,drone.x-2,drone.y-2,4,4);
 		ctx.beginPath();
 		ctx.arc(drone.x,drone.y,4,0,Math.PI*2,false);
-		ctx.fillStyle = teamColors[drone.owner];
+		ctx.fillStyle = teamDronesColors[drone.owner];
 		ctx.fill();
 		ctx.closePath();
 	}

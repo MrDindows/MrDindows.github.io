@@ -6,12 +6,29 @@ var ctx;
 var planets = [];
 var drones = [];
 var AIs = [];
+/*
 var teamColors = ["#555555","#CC1111","#11CC11"];
 var teamHoveredColors = ["#888888","#FF2222","#22FF22"];
+*/
+var teamDronesColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)"];
+var teamPlanetColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)"];
+var teamHoveredColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)"];
+
 var teamCircleColors = ["#555555","#CC1111","#11CC11"];
+var planetPicture = "images/s_image";
+var planetPicturesCount = 3;
+var bgPicture;
+var droneImageSrc = "images/drone.png";
+var droneImage;
 
 var plusCD = 300.0;
 
+randomInt = function(x){
+	return (Math.random()*x)>>0;
+}
+randomIntInRange = function(l,r){
+	return ((Math.random()*(r-l+1)+l)>>0);
+}
 sqr = function(x){
 	return x*x;
 }
@@ -22,6 +39,19 @@ initialize = function () {
 	canvas.width = canvas.offsetWidth;
 	canvas.height = canvas.offsetHeight;
 	ctx = canvas.getContext('2d');
+
+	pic       = new Image();              // "Создаём" изображение
+	pic.src    = 'images/image1.png';  // Источник изображения, позаимствовано на хабре
+
+	bgPicture = new Image();
+	bgPicture.src = 'images/bg.jpg';
+
+	droneImage = new Image();
+	droneImage.src = droneImageSrc;
+
+
+
+
 	resetGame();
 	requestAnimFrame(update);
 	console.log('Ready, stady, GOOO!!!');
@@ -69,6 +99,8 @@ resetGame = function() {
 				r,
 				Math.round(5+Math.random()*10));
 		}
+		planets[i].image = new Image();
+		planets[i].image.src = planetPicture + randomIntInRange(1, planetPicturesCount) +".png";
 	}
 	AIs = [new AI(2)];
 	planets[0].setOwner(1);
