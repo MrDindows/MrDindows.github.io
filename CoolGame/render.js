@@ -1,4 +1,6 @@
 render = function() {
+	ctx.fillStyle = 'white';
+	ctx.fillRect(0,0,screen.width,screen.height);
 	ctx.drawImage(bgPicture,0,0);//,screen.width,screen.height);
 	for(var i in planets)
 	{ 
@@ -31,9 +33,10 @@ render = function() {
 		}
 
 		ctx.beginPath();
+      	ctx.textAlign = 'center';
 		ctx.fillStyle = "black";
 		ctx.font = "bold 16px Arial";
-		ctx.fillText(planet.population, planet.x-10, planet.y+5);
+		ctx.fillText(planet.population, planet.x, planet.y+5);
 		ctx.closePath();
 	}
 	if (target != null && selectedPlanets.length > 1 || fillingTime > 0){
@@ -43,7 +46,7 @@ render = function() {
 		ctx.beginPath();
 		ctx.fillStyle = "white";
 		ctx.font = "bold 16px Arial";
-		ctx.fillText(percent, target.x-10, target.y-target.radius - 5);
+		ctx.fillText(percent, target.x, target.y-target.radius - 5);
 		ctx.closePath();
 	}
 
@@ -57,5 +60,14 @@ render = function() {
 		ctx.fillStyle = teamDronesColors[drone.owner];
 		ctx.fill();
 		ctx.closePath();
+	}
+	if (gameIsPaused){
+
+		ctx.fillStyle = 'rgba(0,0,0,0.5)';
+		ctx.fillRect(0,0,screen.width,screen.height);
+		ctx.fillStyle = "white";
+		ctx.font = "bold 50px Arial";
+      	ctx.textAlign = 'center';
+		ctx.fillText('PAUSE', canvas.width/2, canvas.height/2);
 	}
 };

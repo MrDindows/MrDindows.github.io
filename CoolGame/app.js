@@ -21,7 +21,10 @@ var bgPicture;
 var droneImageSrc = "images/drone.png";
 var droneImage;
 
+var gameIsPaused = false;
+
 var plusCD = 300.0;
+
 
 randomInt = function(x){
 	return (Math.random()*x)>>0;
@@ -33,8 +36,9 @@ sqr = function(x){
 	return x*x;
 }
 
+
+
 initialize = function () {
-	time = Date.now();
 	canvas = document.getElementById('canva');
 	canvas.width = canvas.offsetWidth;
 	canvas.height = canvas.offsetHeight;
@@ -68,7 +72,8 @@ window.requestAnimFrame = (function () {
 	};
 })();
 
-resetGame = function() { 
+resetGame = function() {
+	time = Date.now();
 	var planetsCount = 9;
 	planets = [];
 	drones = [];
@@ -107,37 +112,50 @@ resetGame = function() {
 	planets[8].setOwner(2);
 };
 
+pause = function() {
+	gameIsPaused = !gameIsPaused;
+	if (gameIsPaused){
+
+	}
+	else {
+		time = Date.now();
+	}
+}
+
+
 var plusTime = 0;
 var step = 0;
 update = function() {
 	++step;
 	if (step % 2 == 1){
-		var t = Date.now();
-		var dt = t - time;
-		time = t;
-		plusTime += dt;
-		while (plusTime >= plusCD)
-		{
-			plusTime -= plusCD;
-			for (var i in planets)
+		if (!gameIsPaused){
+			var t = Date.now();
+			var dt = t - time;
+			time = t;
+			plusTime += dt;
+			while (plusTime >= plusCD)
 			{
-				var planet = planets[i];
-				if (planet.owner != 0)
+				plusTime -= plusCD;
+				for (var i in planets)
 				{
-					planet.population++;
+					var planet = planets[i];
+					if (planet.owner != 0)
+					{
+						planet.population++;
+					}
 				}
 			}
-		}
-		for (var i in drones)
-		{
-			var drone = drones[i];
-			if (drone.isAlive)
+			for (var i in drones)
 			{
-				drone.update(dt);
+				var drone = drones[i];
+				if (drone.isAlive)
+				{
+					drone.update(dt);
+				}
 			}
+			updateTargeting(dt);
+			AIs[0].update(dt);
 		}
-		updateTargeting(dt);
-		AIs[0].update(dt);
 		render();
 	}
 	requestAnimFrame(function(){update(dt);});
@@ -149,6 +167,7 @@ launchDrones = function(sourcePlanets, targetPlanet, percent){
 	for (var i in sourcePlanets)
 	{
 		var planet = sourcePlanets[i];
+		if (planet == null) continue;
 		var count = (planet.population * percent + 0.95)>>0;
 		var p = ((count + 40 - 1)/ 40)>>0;
 		var q = ((count + p - 1) / p)>>0;

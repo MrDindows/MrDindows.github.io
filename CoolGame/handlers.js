@@ -111,14 +111,33 @@ window.onmouseup = function(e){
 			}
 			var percent = 0.01 * fillingTime / fullFillTime ;
 			if (percent > 1) percent = 1;
-			launchDrones(selectedPlanets,planet,percent);
+			for (var i in selectedPlanets)
+			{
+				var planet = selectedPlanets[i];
+				if (planet.owner != 1) selectedPlanets[i] = null;
+			}
+			launchDrones(selectedPlanets,targetPlanet,percent);
 			targetPlanet.state = Planet.State.NORMAL;
 		}
 		for (var i in selectedPlanets)
 		{
 			var planet = selectedPlanets[i];
-			planet.state = Planet.State.NORMAL;
+			if (planet != null)
+				planet.state = Planet.State.NORMAL;
 		}
 	}
 	selectedPlanets = [];
 };
+
+
+$(document).ready(function() {
+	$(document).keydown(function(e) {
+		console.log(e.keyCode);
+		if (e.keyCode == 82) {	// R
+		  resetGame();
+		}
+		else if(e.keyCode == 32) {	// Space
+			pause();
+		}
+	});
+});

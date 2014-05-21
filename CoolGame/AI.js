@@ -26,12 +26,17 @@ AI.prototype.makeMove = function() {
 			}
 		}
 	}
+	if (!myPlanet) return;
 	var targetPlanet = null;
+	var targetPriority = Infinity;
 	for (var i in planets){
 		var planet = planets[i];
 		if (planet.owner != this.owner){
-			if (targetPlanet == null || targetPlanet.population > planet.population){
+			var priority = planet.population +
+				Math.sqrt(sqr(planet.x-myPlanet.x) + sqr(planet.y - myPlanet.y)) / dronesVelocity / plusCD;
+			if (targetPlanet == null || targetPriority > priority){
 				targetPlanet = planet;
+				targetPriority = priority;
 			}
 		}
 	}
