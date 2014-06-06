@@ -22,17 +22,22 @@ body, html{
 #panel button, #panel label	{
 	font-size: 200%;
 }
-#newGameBtn {
+#newGameBlock {
 	position: relative;
-	top: 20%;
+	top: 15%;
 }
 
-#pauseBtn{
+#pauseBlock{
 	position: relative;
-	top: 30%;
+	top: 25%;
 }
 
 #playersCountBlock{
+	position: relative;
+	top: 35%;
+}
+
+#hardnessBlock{
 	position: relative;
 	top: 40%;
 }

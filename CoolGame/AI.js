@@ -16,7 +16,7 @@ getRealCD = function(CD, player){
 		}
 	}
 	if (planetsCount == 0) planetsCount = 1;
-	return 2000 + (CD - 2000) / planetsCount;
+	return 2000 + 1000 * (hardness - 0.8) + (CD - 2000) / planetsCount * hardness;
 };
 
 AI.prototype.update = function(dt) {

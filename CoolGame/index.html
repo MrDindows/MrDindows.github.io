@@ -17,16 +17,26 @@
 <body>
 	<canvas class="canva" id="canva"></canvas>
     <div id="panel" style="text-align: center">
-        <div id="newGameBtn">
-            <button class="btn btn-primary" onclick="resetGame()">New Game</button>
+        <div id="newGameBlock">
+            <button id="newGameBtn" class="btn btn-primary" onclick="resetGame()">New Game</button>
         </div>
-        <div id="pauseBtn" >
-            <button class="btn btn-primary"  onclick="pause()">Pause</button>
+        <div id="pauseBlock" >
+            <button class="btn btn-primary" id="pauseBtn" onclick="pause()">Pause</button>
         </div>
         <div id="playersCountBlock">
-            <label for="playersCountLabel">
+            <label for="playersCount">
                 Players count:
-                <input id="playersCountLabel" type="number" class="form-control" min="2" max="5" value="2"/>
+                <input id="playersCount" type="number" class="form-control" min="2" max="5" value="2"/>
+            </label>
+        </div>
+        <div id="hardnessBlock">
+            <label for="hardnessInput">
+                Hardness:
+                <select id="hardnessInput">
+                    <option>easy</option>
+                    <option>medium</option>
+                    <option>hard</option>
+                </select>
             </label>
         </div>
 

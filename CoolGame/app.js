@@ -10,9 +10,9 @@ var AIs = [];
 var teamColors = ["#555555","#CC1111","#11CC11"];
 var teamHoveredColors = ["#888888","#FF2222","#22FF22"];
 */
-var teamDronesColors = ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)","rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
-var teamPlanetColors = ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
-var teamHoveredColors = ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
+var teamDronesColors =  ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)","rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
+var teamPlanetColors =  ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)","rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
+var teamHoveredColors = ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)","rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
 
 var teamCircleColors = ["#555555","#CC1111","#11CC11", "#1111CC", "#11BE88"];
 var planetPicture = "images/s_image";
@@ -29,15 +29,17 @@ var plusCD = 300.0;
 
 var playersCount = 3;
 
+var hardness = 1;
+
 randomInt = function(x){
 	return (Math.random()*x)>>0;
-}
+};
 randomIntInRange = function(l,r){
 	return ((Math.random()*(r-l+1)+l)>>0);
-}
+};
 sqr = function(x){
 	return x*x;
-}
+};
 
 
 initialize = function () {
@@ -45,9 +47,6 @@ initialize = function () {
 	canvas.width = canvas.offsetWidth;
 	canvas.height = canvas.offsetHeight;
 	ctx = canvas.getContext('2d');
-
-	pic       = new Image();              // "Создаём" изображение
-	pic.src    = 'images/image1.png';  // Источник изображения, позаимствовано на хабре
 
 	bgPicture = new Image();
 	bgPicture.src = 'images/bg.jpg';
@@ -75,11 +74,23 @@ window.requestAnimFrame = (function () {
 })();
 
 resetGame = function() {
+	$('input').each(function(){
+  		$(this).trigger('blur');
+ 	});
+	$('button').each(function(){
+  		$(this).trigger('blur');
+ 	});
 	time = Date.now();
 	planets = [];
 	drones = [];
-	playersCount = $("#playersCountLabel").val();
-	console.log(playersCount);
+	playersCount = $("#playersCount").val();
+	var hardType = $("#hardnessInput").val();
+	switch(hardType){
+		case 'easy': hardness = 1.8; break;
+		case 'medium' : hardness = 1.3; break;
+		case 'hard': hardness = 0.8; break;
+		default: hardness = 1.3; break;
+	}
 	var coef = canvas.width / 1200;
 	var minR = 40 * coef;
 	var maxR = 80 * coef;
@@ -106,22 +117,28 @@ resetGame = function() {
 				{x:x,y:y},
 				r,
 				Math.round(5+Math.random()*10));
-		};
+		}
 		planets[i].image = new Image();
 		planets[i].image.src = planetPicture + randomIntInRange(1, planetPicturesCount) +".png";
 	}
 	AIs = [];
-	for (var i=2;i<=playersCount;++i)
+	for (i=2;i<=playersCount;++i)
 	{
 		AIs[i] = new AI(i);
 	}
-	for (var i=1;i<=playersCount;++i)
+	for (i=1;i<=playersCount;++i)
 	{
 		planets[i].setOwner(i);
 	}
 };
 
 pause = function() {
+	$('input').each(function(){
+  		$(this).trigger('blur');
+ 	});
+	$('button').each(function(){
+  		$(this).trigger('blur');
+ 	});
 	gameIsPaused = !gameIsPaused;
 	if (gameIsPaused){
 
@@ -145,7 +162,7 @@ update = function() {
 			while (plusTime >= plusCD)
 			{
 				plusTime -= plusCD;
-				for (var i in planets)
+				for (i in planets)
 				{
 					var planet = planets[i];
 					if (planet.owner != 0)
@@ -154,7 +171,7 @@ update = function() {
 					}
 				}
 			}
-			for (var i in drones)
+			for (i in drones)
 			{
 				var drone = drones[i];
 				if (drone.isAlive)
@@ -167,6 +184,19 @@ update = function() {
 			{
 				AIs[i].update(dt);
 			}
+			var enemyPlanets = 0;
+			for (var i in planets){
+				var planet = planets[i];
+				if (planet.owner > 1)
+				{
+					enemyPlanets++;
+				}
+			}
+			if (enemyPlanets == 0)
+			{
+
+			}
+
 		}
 		render();
 	}
