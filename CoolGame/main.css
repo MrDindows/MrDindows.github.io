@@ -1,8 +1,9 @@
 .canva{
 	display: block;
-	width: 80%;
+	width: 82%;
 	height: 100%;
 	float: left;
+	cursor: default;
 }
 
 body, html{
@@ -13,6 +14,25 @@ body, html{
 	height: 100%;
 	width: 18%;
 	float: left;
-	margin-left: 5px;
-	background: #b3b4bb;
+	background: #8c91fb;
+	border-left: groove;
+	border-left-width: 5px;
+	border-left-color: #2a6496;
+}
+#panel button, #panel label	{
+	font-size: 200%;
+}
+#newGameBtn {
+	position: relative;
+	top: 20%;
+}
+
+#pauseBtn{
+	position: relative;
+	top: 30%;
+}
+
+#playersCountBlock{
+	position: relative;
+	top: 40%;
 }

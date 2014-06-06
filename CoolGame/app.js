@@ -10,11 +10,11 @@ var AIs = [];
 var teamColors = ["#555555","#CC1111","#11CC11"];
 var teamHoveredColors = ["#888888","#FF2222","#22FF22"];
 */
-var teamDronesColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)","rgba(17,17,204,0.5)"];
-var teamPlanetColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)"];
-var teamHoveredColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)"];
+var teamDronesColors = ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)","rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
+var teamPlanetColors = ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
+var teamHoveredColors = ["rgba(85,85,85,0.5)","rgba(234,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)","rgba(255,255,4,0.5)","rgba(205,0,205,0.5)"];
 
-var teamCircleColors = ["#555555","#CC1111","#11CC11", "#1111CC"];
+var teamCircleColors = ["#555555","#CC1111","#11CC11", "#1111CC", "#11BE88"];
 var planetPicture = "images/s_image";
 var planetPicturesCount = 3;
 var bgPicture;
@@ -27,6 +27,7 @@ var gameIsPaused = false;
 
 var plusCD = 300.0;
 
+var playersCount = 3;
 
 randomInt = function(x){
 	return (Math.random()*x)>>0;
@@ -77,6 +78,8 @@ resetGame = function() {
 	time = Date.now();
 	planets = [];
 	drones = [];
+	playersCount = $("#playersCountLabel").val();
+	console.log(playersCount);
 	var coef = canvas.width / 1200;
 	var minR = 40 * coef;
 	var maxR = 80 * coef;
@@ -103,14 +106,19 @@ resetGame = function() {
 				{x:x,y:y},
 				r,
 				Math.round(5+Math.random()*10));
-		}
+		};
 		planets[i].image = new Image();
 		planets[i].image.src = planetPicture + randomIntInRange(1, planetPicturesCount) +".png";
 	}
-	AIs = [new AI(2), new AI(3)];
-	planets[0].setOwner(1);
-	planets[8].setOwner(2);
-	planets[4].setOwner(3);
+	AIs = [];
+	for (var i=2;i<=playersCount;++i)
+	{
+		AIs[i] = new AI(i);
+	}
+	for (var i=1;i<=playersCount;++i)
+	{
+		planets[i].setOwner(i);
+	}
 };
 
 pause = function() {
@@ -155,8 +163,10 @@ update = function() {
 				}
 			}
 			updateTargeting(dt);
-			AIs[0].update(dt);
-			AIs[1].update(dt);
+			for (var i in AIs)
+			{
+				AIs[i].update(dt);
+			}
 		}
 		render();
 	}
