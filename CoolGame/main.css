@@ -1,4 +1,18 @@
 .canva{
-	width: 100%;
+	display: block;
+	width: 80%;
 	height: 100%;
+	float: left;
+}
+
+body, html{
+	height: 100%;
+}
+
+#panel{
+	height: 100%;
+	width: 18%;
+	float: left;
+	margin-left: 5px;
+	background: #b3b4bb;
 }

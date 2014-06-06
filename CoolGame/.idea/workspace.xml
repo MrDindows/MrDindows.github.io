@@ -5,19 +5,20 @@
     <ignored path="Game.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1399916457329" ignored="false" />
-    <file path="/app.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400708418598" ignored="false" />
+    <file path="/app.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1402036719129" ignored="false" />
     <file path="/a.dummy" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400533516845" ignored="false" />
     <file path="/a.py" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1399916387951" ignored="false" />
     <file path="/a.html" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1399916451134" ignored="false" />
     <file path="/a.coffee" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1399916396364" ignored="false" />
-    <file path="/a.css" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1399916468037" ignored="false" />
+    <file path="/a.css" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1402034602458" ignored="false" />
     <file path="/stateMachine.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1399927075008" ignored="false" />
     <file path="/drone.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400707754610" ignored="false" />
     <file path="/planet.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400058512706" ignored="false" />
     <file path="/render.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400708792596" ignored="false" />
-    <file path="/index.html" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400708118975" ignored="false" />
-    <file path="/AI.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400707034667" ignored="false" />
+    <file path="/index.html" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1402036025743" ignored="false" />
+    <file path="/AI.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1402036388792" ignored="false" />
     <file path="/handlers.js" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1400708285186" ignored="false" />
+    <file path="/main.css" changelist="e30ea6e4-0ab4-4ad6-a2ea-cea5fc77d446" time="1402035199036" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="1" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0">
+            <state line="16" column="21" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -49,16 +50,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="35" selection-start="258" selection-end="258" vertical-scroll-proportion="-2.6153846">
+            <state line="11" column="37" selection-start="536" selection-end="536" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="33" selection-start="3322" selection-end="3323" vertical-scroll-proportion="0.0">
+            <state line="39" column="0" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.42424244">
               <folding />
             </state>
           </provider>
@@ -73,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="render.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="render.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/render.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="38" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.41738066">
+            <state line="20" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,7 +86,7 @@
       <file leaf-file-name="AI.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="57" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,16 +95,7 @@
       <file leaf-file-name="drone.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="28" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stateMachine.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stateMachine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+            <state line="26" column="0" selection-start="663" selection-end="849" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -112,7 +104,7 @@
       <file leaf-file-name="planet.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/planet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="23" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0">
+            <state line="11" column="24" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,21 +122,22 @@
       <list>
         <option value="$PROJECT_DIR$/stateMachine.js" />
         <option value="$PROJECT_DIR$/hendlers.js" />
-        <option value="$PROJECT_DIR$/planet.js" />
-        <option value="$PROJECT_DIR$/AI.js" />
-        <option value="$PROJECT_DIR$/drone.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/handlers.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/render.js" />
+        <option value="$PROJECT_DIR$/drone.js" />
+        <option value="$PROJECT_DIR$/planet.js" />
+        <option value="$PROJECT_DIR$/main.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/AI.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="1000" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -165,7 +158,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>JSValidateTypes</id>
+            <id>JSDuplicatedDeclaration</id>
           </State>
         </selected-state>
       </profile-state>
@@ -223,7 +216,7 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode.CSS" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -294,17 +287,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27309564" sideWeight="0.6712095" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1530303" sideWeight="0.6712095" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -419,44 +414,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="1" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="554" column="0" selection-start="8610" selection-end="8610" vertical-scroll-proportion="0.33291456">
+        <state line="554" column="0" selection-start="8610" selection-end="8610" vertical-scroll-proportion="0.33291456" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/planet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="24" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stateMachine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.030303031">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/planet.js">
+    <entry file="file://$PROJECT_DIR$/drone.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="23" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0">
+        <state line="26" column="0" selection-start="663" selection-end="849" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AI.js">
+    <entry file="file://$PROJECT_DIR$/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="57" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0">
+        <state line="16" column="21" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/render.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="35" selection-start="258" selection-end="258" vertical-scroll-proportion="-2.6153846">
+        <state line="20" column="34" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -468,23 +461,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drone.js">
+    <entry file="file://$PROJECT_DIR$/AI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="28" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="37" selection-start="536" selection-end="536" vertical-scroll-proportion="-7.1923075">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="33" selection-start="3322" selection-end="3323" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/render.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="38" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.41738066">
+        <state line="39" column="0" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.42424244">
           <folding />
         </state>
       </provider>

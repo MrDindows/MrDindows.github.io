@@ -25,6 +25,9 @@ Drone.prototype.setTarget = function(target) {
 	this.target = target;
 }
 
+sqr = function(x){
+	return x*x;
+}
 Drone.prototype.update = function(dt) {
 	var dx = this.target.x - this.x;
 	var dy = this.target.y - this.y;

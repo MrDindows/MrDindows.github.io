@@ -10,16 +10,18 @@ var AIs = [];
 var teamColors = ["#555555","#CC1111","#11CC11"];
 var teamHoveredColors = ["#888888","#FF2222","#22FF22"];
 */
-var teamDronesColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)"];
-var teamPlanetColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)"];
-var teamHoveredColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)"];
+var teamDronesColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)","rgba(17,17,204,0.5)"];
+var teamPlanetColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)"];
+var teamHoveredColors = ["rgba(85,85,85,0.5)","rgba(204,17,17,0.5)","rgba(17,204,17,0.5)", "rgba(17,17,204,0.5)"];
 
-var teamCircleColors = ["#555555","#CC1111","#11CC11"];
+var teamCircleColors = ["#555555","#CC1111","#11CC11", "#1111CC"];
 var planetPicture = "images/s_image";
 var planetPicturesCount = 3;
 var bgPicture;
 var droneImageSrc = "images/drone.png";
 var droneImage;
+
+var planetsCount = 11;
 
 var gameIsPaused = false;
 
@@ -35,7 +37,6 @@ randomIntInRange = function(l,r){
 sqr = function(x){
 	return x*x;
 }
-
 
 
 initialize = function () {
@@ -74,7 +75,6 @@ window.requestAnimFrame = (function () {
 
 resetGame = function() {
 	time = Date.now();
-	var planetsCount = 9;
 	planets = [];
 	drones = [];
 	var coef = canvas.width / 1200;
@@ -107,9 +107,10 @@ resetGame = function() {
 		planets[i].image = new Image();
 		planets[i].image.src = planetPicture + randomIntInRange(1, planetPicturesCount) +".png";
 	}
-	AIs = [new AI(2)];
+	AIs = [new AI(2), new AI(3)];
 	planets[0].setOwner(1);
 	planets[8].setOwner(2);
+	planets[4].setOwner(3);
 };
 
 pause = function() {
@@ -120,7 +121,7 @@ pause = function() {
 	else {
 		time = Date.now();
 	}
-}
+};
 
 
 var plusTime = 0;
@@ -155,6 +156,7 @@ update = function() {
 			}
 			updateTargeting(dt);
 			AIs[0].update(dt);
+			AIs[1].update(dt);
 		}
 		render();
 	}

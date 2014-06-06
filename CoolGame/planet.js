@@ -5,8 +5,6 @@ Planet = function(position, r, population) {
 	this.population = population;
 	this.owner = 0;
 	this.state = Planet.State.NORMAL;
-
-
 }
 Planet.prototype.setOwner = function (owner) {
 	this.owner = owner;
@@ -31,8 +29,6 @@ Planet.prototype.mouseOut = function() {
 Planet.prototype.mouseUp = function() {
 	this.state = Planet.State.NORMAL;
 }
-
-
 Planet.State = {
 	NORMAL:0,
 	HOVERED:1,
