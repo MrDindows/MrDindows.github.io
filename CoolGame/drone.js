@@ -37,7 +37,6 @@ Drone.prototype.update = function(dt) {
 	this.y += dy * coef;
 	if (this.target.inCoords({x:this.x,y:this.y}))
 	{
-		console.log('done');
 		if (this.target.owner == this.owner)
 			this.target.population += this.population;
 		else

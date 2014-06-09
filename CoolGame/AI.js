@@ -29,14 +29,20 @@ AI.prototype.update = function(dt) {
 	}
 
 };
+
 AI.prototype.makeMove = function() {
 	var myPlanet = null;
+	var myPlanetsCount = 0;
+	var enemyPlanetsCount = 0;
 	for (var i in planets){
 		var planet = planets[i];
 		if (planet.owner == this.owner){
 			if (myPlanet == null || myPlanet.population < planet.population){
 				myPlanet = planet;
 			}
+			myPlanetsCount++;
+		} else if (planet.owner != 0){
+			enemyPlanetsCount++;
 		}
 	}
 	if (!myPlanet) return;
@@ -53,7 +59,26 @@ AI.prototype.makeMove = function() {
 			}
 		}
 	}
+	if (myPlanetsCount >= 4 && enemyPlanetsCount == 1){
+		for (i in planets){
+			planet = planets[i];
+			if (planet.owner != this.owner && planet.owner != 0){
+				this.rushAttack(planet);
+				return;
+			}
+		}
+	}
 	if (myPlanet && targetPlanet){
 		launchDrones([myPlanet],targetPlanet,0.95);
 	}
+};
+
+AI.prototype.rushAttack = function(target){
+	var sourcePlanets = [];
+	for (var i in planets){
+		if (planets[i].owner == this.owner){
+			sourcePlanets.push(planets[i]);
+		}
+	}
+	launchDrones(sourcePlanets,target,0.91);
 };

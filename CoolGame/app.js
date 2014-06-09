@@ -31,6 +31,8 @@ var playersCount = 3;
 
 var hardness = 1;
 
+var stateMachine;
+
 randomInt = function(x){
 	return (Math.random()*x)>>0;
 };
@@ -55,8 +57,7 @@ initialize = function () {
 	droneImage.src = droneImageSrc;
 
 
-
-
+	stateMachine = new StateMachine();
 	resetGame();
 	requestAnimFrame(update);
 	console.log('Ready, stady, GOOO!!!');
@@ -81,6 +82,7 @@ resetGame = function() {
   		$(this).trigger('blur');
  	});
 	time = Date.now();
+	stateMachine.setState(GameState.GAME);
 	planets = [];
 	drones = [];
 	playersCount = $("#playersCount").val();
@@ -139,6 +141,13 @@ pause = function() {
 	$('button').each(function(){
   		$(this).trigger('blur');
  	});
+
+	if (stateMachine.currentState == GameState.GAME) {
+		stateMachine.setState(GameState.PAUSE);
+	} else if (stateMachine.currentState == GameState.PAUSE) {
+		stateMachine.setState(GameState.GAME);
+	}
+
 	gameIsPaused = !gameIsPaused;
 	if (gameIsPaused){
 
@@ -149,87 +158,7 @@ pause = function() {
 };
 
 
-var plusTime = 0;
-var step = 0;
-update = function() {
-	++step;
-	if (step % 2 == 1){
-		if (!gameIsPaused){
-			var t = Date.now();
-			var dt = t - time;
-			time = t;
-			plusTime += dt;
-			while (plusTime >= plusCD)
-			{
-				plusTime -= plusCD;
-				for (i in planets)
-				{
-					var planet = planets[i];
-					if (planet.owner != 0)
-					{
-						planet.population++;
-					}
-				}
-			}
-			for (i in drones)
-			{
-				var drone = drones[i];
-				if (drone.isAlive)
-				{
-					drone.update(dt);
-				}
-			}
-			updateTargeting(dt);
-			for (var i in AIs)
-			{
-				AIs[i].update(dt);
-			}
-			var enemyPlanets = 0;
-			for (var i in planets){
-				var planet = planets[i];
-				if (planet.owner > 1)
-				{
-					enemyPlanets++;
-				}
-			}
-			if (enemyPlanets == 0)
-			{
 
-			}
-
-		}
-		render();
-	}
-	requestAnimFrame(function(){update(dt);});
-};
-
-
-launchDrones = function(sourcePlanets, targetPlanet, percent){
-	var cur = 0;
-	for (var i in sourcePlanets)
-	{
-		var planet = sourcePlanets[i];
-		if (planet == null) continue;
-		var count = (planet.population * percent + 0.95)>>0;
-		var p = ((count + 40 - 1)/ 40)>>0;
-		var q = ((count + p - 1) / p)>>0;
-		var e = count;
-		for (var j=0;j<q;++j)
-		{
-			while (cur < drones.length && drones[cur].isAlive) ++cur;
-			if (cur == drones.length)
-			{
-				drones.push(new Drone({x:0,y:0}));
-			}
-			var angle = 2 * Math.PI * j / q;
-			var d = planet.radius + 5;
-			var pos = {x: planet.x + d * Math.sin(angle), y : planet.y + d * Math.cos(angle)};
-			drones[cur].assign(pos,targetPlanet,planet.owner,Math.min(p,e));
-			e -= p;
-		}
-		planet.population -= count;
-	}
-};
 
 window.requestAnimationFrame(function () {
 	initialize();

@@ -61,13 +61,30 @@ render = function() {
 		ctx.fill();
 		ctx.closePath();
 	}
-	if (gameIsPaused){
-
-		ctx.fillStyle = 'rgba(0,0,0,0.5)';
-		ctx.fillRect(0,0,screen.width,screen.height);
-		ctx.fillStyle = "white";
-		ctx.font = "bold 50px Arial";
-      	ctx.textAlign = 'center';
-		ctx.fillText('PAUSE', canvas.width/2, canvas.height/2);
+	switch (stateMachine.currentState){
+		case GameState.PAUSE:
+			ctx.fillStyle = 'rgba(0,0,0,0.5)';
+			ctx.fillRect(0,0,screen.width,screen.height);
+			ctx.fillStyle = "white";
+			ctx.font = "bold 50px Arial";
+			ctx.textAlign = 'center';
+			ctx.fillText('PAUSE', canvas.width/2, canvas.height/2);
+			break;
+		case GameState.WON:
+			ctx.fillStyle = 'rgba(0,0,0,0.5)';
+			ctx.fillRect(0,0,screen.width,screen.height);
+			ctx.fillStyle = "yellow";
+			ctx.font = "bold 50px Arial";
+			ctx.textAlign = 'center';
+			ctx.fillText('YOU WON THIS GAME!', canvas.width/2, canvas.height/2);
+			break;
+		case GameState.LOSE:
+			ctx.fillStyle = 'rgba(0,0,0,0.5)';
+			ctx.fillRect(0,0,screen.width,screen.height);
+			ctx.fillStyle = "orange";
+			ctx.font = "bold 50px Arial";
+			ctx.textAlign = 'center';
+			ctx.fillText('LOSER', canvas.width/2, canvas.height/2);
+			break;
 	}
 };
