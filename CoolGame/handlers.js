@@ -1,6 +1,5 @@
 
 var mousePressed = false;
-var mouseTargeted = false;
 var selectedPlanets = [];
 var fullFillTime = 6;
 var fillingTime = 0;
@@ -93,9 +92,9 @@ window.onmouseup = function(e){
 	if (selectedPlanets.length > 0)
 	{
 		var targetPlanet = null;
-		for (var i in planets)
+		for (i in planets)
 		{
-			var planet = planets[i];
+			planet = planets[i];
 			if (planet.inCoords(mPos))
 			{
 				targetPlanet = planet;
@@ -111,9 +110,9 @@ window.onmouseup = function(e){
 			}
 			var percent = 0.01 * fillingTime / fullFillTime ;
 			if (percent > 1) percent = 1;
-			for (var i in selectedPlanets)
+			for (i in selectedPlanets)
 			{
-				var planet = selectedPlanets[i];
+				planet = selectedPlanets[i];
 				if (planet.owner != 1) selectedPlanets[i] = null;
 			}
 			launchDrones(selectedPlanets,targetPlanet,percent);

@@ -6,7 +6,7 @@ Drone = function(position, target, owner, population) {
 	this.target = target;
 	this.isAlive = true;
 	this.population = population;
-}
+};
 Drone.prototype.assign = function(position, target, owner, population) {
 	this.x = position.x;
 	this.y = position.y;
@@ -14,20 +14,20 @@ Drone.prototype.assign = function(position, target, owner, population) {
 	this.target = target;
 	this.isAlive = true;
 	this.population = population;
-}
+};
 Drone.prototype.setPosition = function(position) {
 	this.position = position;
-}
+};
 Drone.prototype.setOwner = function (owner) {
 	this.owner = owner;
-}
+};
 Drone.prototype.setTarget = function(target) {
 	this.target = target;
-}
+};
 
 sqr = function(x){
 	return x*x;
-}
+};
 Drone.prototype.update = function(dt) {
 	var dx = this.target.x - this.x;
 	var dy = this.target.y - this.y;
@@ -51,5 +51,5 @@ Drone.prototype.update = function(dt) {
 		}
 		this.isAlive = false;
 	}
-}
+};
 
